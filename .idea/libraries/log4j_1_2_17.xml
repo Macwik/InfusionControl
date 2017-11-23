@@ -1,0 +1,39 @@
+<component name="libraryTable">
+  <library name="log4j-1.2.17">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mina-core-2.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-all-5.0.0.Alpha2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.jface.databinding_1.7.0.v20150406-2148.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.jface.text_3.10.0.v20150603-1752.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.jface_3.11.0.v20150602-1400.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/org.eclipse.swt.win32.win32.x86_64_3.104.0.v20150528-0211.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-log4j12-1.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/sqlitejdbc-v033-nested.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/netty-all-5.0.0.Alpha2-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-benchmarks/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-core/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-core/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-example/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-example/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-filter-compression/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-filter-compression/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-http/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-http/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-integration-beans/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-integration-beans/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-integration-jmx/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-integration-ognl/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-integration-xbean/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-integration-xbean/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-statemachine/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-statemachine/src/test/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-transport-apr/src/main/java" />
+      <root url="jar://$PROJECT_DIR$/lib/apache-mina-2.0.9-src.zip!/apache-mina-2.0.9/src/mina-transport-serial/src/main/java" />
+    </SOURCES>
+  </library>
+</component>
