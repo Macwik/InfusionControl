@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.eclipse.swt.widgets.Display;
+
 import com.bd.Control.InterfaceAndEnum.EErrorStatus;
 import com.bd.Dao.IBedPatientBoundDao;
 import com.bd.Dao.IInfusionEventDao;
@@ -33,7 +35,9 @@ public class SystemConfig {
 
 	private static boolean isFileNormal = true;
 	private static boolean isDBNormal = true;
-
+	public static final int SCREEN_SIZE = Display.getDefault().getClientArea().width;
+	public static final boolean SCREEN_SIZE_1600 = SCREEN_SIZE == 1600;
+	public static final boolean SCREEN_SIZE_1920 = SCREEN_SIZE == 1920;
 	static {
 		dbProp = new Properties();
 		phoneIMEIprop = new Properties();

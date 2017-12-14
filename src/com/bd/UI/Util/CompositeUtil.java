@@ -7,6 +7,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import com.bd.Control.SystemConfig;
 import com.bd.UI.BedPanel;
 import com.bd.UI.ImgPhonePanel;
 
@@ -41,7 +42,13 @@ public class CompositeUtil {
 			// *1920*1080
 
 			// *1366*768
-			mp[i].setBounds(x + 113 * i + 5, y, width, height);
+			if (SystemConfig.SCREEN_SIZE_1920) {
+				mp[i].setBounds(x + 158 * i + 6, y, width, height);
+			} else if (SystemConfig.SCREEN_SIZE_1600) {
+				mp[i].setBounds(x + 131 * i + 5, y, width, height);
+			} else {
+				mp[i].setBounds(x + 113 * i + 5, y, width, height);
+			}
 			// *1366*768
 		}
 		return mp;

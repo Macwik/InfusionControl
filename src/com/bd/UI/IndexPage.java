@@ -30,10 +30,24 @@ import com.bd.server.nettyHandler;
 import com.bd.server.nettyServer;
 
 public class IndexPage {
-
-	private static final int width = 108;
-	private static final int height = 85;
-	private static final int start = 0;
+	private static final int width;
+	private static final int height;
+	private static final int start;
+	static {
+		if (SystemConfig.SCREEN_SIZE_1920) {
+			width = 153;
+			height = 126;
+			start = 0;
+		} else if (SystemConfig.SCREEN_SIZE_1600) {
+			width = 125;
+			height = 100;
+			start = 3;
+		} else {
+			width = 108;
+			height = 85;
+			start = 0;
+		}
+	}
 
 	private Display display;
 	protected static Shell IndexPageShell;
@@ -191,8 +205,8 @@ public class IndexPage {
 		IndexPageShell.setText("智能输液监控系统");
 		IndexPageShell.setLocation(0, 0);
 		IndexPageShell.setBackground(SWTResourceManager.getColor(SWT.COLOR_INFO_BACKGROUND));
-		 new WindowSize(display).setSize(IndexPageShell);
-		//IndexPageShell.setSize(1366, 730);
+		new WindowSize(display).setSize(IndexPageShell);
+		// IndexPageShell.setSize(1366, 730);
 
 		sm = new SystemMenu(IndexPageShell);
 
@@ -204,23 +218,55 @@ public class IndexPage {
 		BedPanel[] mp6 = new BedPanel[12];
 
 		allPanel = new BedPanel[72];
-		CompositeUtil.createDivideLine(IndexPageShell, 4, 5, 1352, 15, "床 位 列 表");
-		mp1 = CompositeUtil.createLineComposite(IndexPageShell, 1, start, 25, width, height);
-		mp2 = CompositeUtil.createLineComposite(IndexPageShell, 13, start, 115, width, height);
-		mp3 = CompositeUtil.createLineComposite(IndexPageShell, 25, start, 205, width, height);
-		mp4 = CompositeUtil.createLineComposite(IndexPageShell, 37, start, 295, width, height);
-		mp5 = CompositeUtil.createLineComposite(IndexPageShell, 49, start, 385, width, height);
-		mp6 = CompositeUtil.createLineComposite(IndexPageShell, 61, start, 475, width, height);
-		CompositeUtil.createDivideLine(IndexPageShell, 5, 565, 1352, 15, "护 士 报 警 终 端 列 表");
+		if (SystemConfig.SCREEN_SIZE_1920) {
+			CompositeUtil.createDivideLine(IndexPageShell, 5, 5, 1893, 25, "床 位 列 表");
+			mp1 = CompositeUtil.createLineComposite(IndexPageShell, 1, start, 35, width, height);
+			mp2 = CompositeUtil.createLineComposite(IndexPageShell, 13, start, 166, width, height);
+			mp3 = CompositeUtil.createLineComposite(IndexPageShell, 25, start, 296, width, height);
+			mp4 = CompositeUtil.createLineComposite(IndexPageShell, 37, start, 426, width, height);
+			mp5 = CompositeUtil.createLineComposite(IndexPageShell, 49, start, 556, width, height);
+			mp6 = CompositeUtil.createLineComposite(IndexPageShell, 61, start, 686, width, height);
+			CompositeUtil.createDivideLine(IndexPageShell, 5, 820, 1893, 25, "护 士 报 警 终 端 列 表");
+		} else if (SystemConfig.SCREEN_SIZE_1600) {
+			CompositeUtil.createDivideLine(IndexPageShell, 8, 5, 1566, 21, "床 位 列 表");
+			mp1 = CompositeUtil.createLineComposite(IndexPageShell, 1, start, 32, width, height);
+			mp2 = CompositeUtil.createLineComposite(IndexPageShell, 13, start, 139, width, height);
+			mp3 = CompositeUtil.createLineComposite(IndexPageShell, 25, start, 246, width, height);
+			mp4 = CompositeUtil.createLineComposite(IndexPageShell, 37, start, 353, width, height);
+			mp5 = CompositeUtil.createLineComposite(IndexPageShell, 49, start, 460, width, height);
+			mp6 = CompositeUtil.createLineComposite(IndexPageShell, 61, start, 567, width, height);
+			CompositeUtil.createDivideLine(IndexPageShell, 8, 674, 1566, 21, "护 士 报 警 终 端 列 表");
+		} else {
+			CompositeUtil.createDivideLine(IndexPageShell, 4, 5, 1352, 15, "床 位 列 表");
+			mp1 = CompositeUtil.createLineComposite(IndexPageShell, 1, start, 25, width, height);
+			mp2 = CompositeUtil.createLineComposite(IndexPageShell, 13, start, 115, width, height);
+			mp3 = CompositeUtil.createLineComposite(IndexPageShell, 25, start, 205, width, height);
+			mp4 = CompositeUtil.createLineComposite(IndexPageShell, 37, start, 295, width, height);
+			mp5 = CompositeUtil.createLineComposite(IndexPageShell, 49, start, 385, width, height);
+			mp6 = CompositeUtil.createLineComposite(IndexPageShell, 61, start, 475, width, height);
+			CompositeUtil.createDivideLine(IndexPageShell, 5, 565, 1352, 15, "护 士 报 警 终 端 列 表");
+		}
 		allPanel = getAllPanel(mp1, mp2, mp3, mp4, mp5, mp6);
 
 		imgPhone = new ImgPhonePanel[10];
 
-		imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 35, 585, 54, 93);
+		if (SystemConfig.SCREEN_SIZE_1920) {
+			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 8, 852, 80, 133);
+		} else if (SystemConfig.SCREEN_SIZE_1600) {
+			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 35, 702, 52, 93);
+		} else {
+			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 35, 585, 54, 93);
+		}
 
 		cp = new ClockPanel(IndexPageShell, SWT.NONE);
 
-		cp.setBounds(1160, 570, 160, 90);
+		if (SystemConfig.SCREEN_SIZE_1920) {
+			cp.setBounds(1680, 864, 300, 130);
+		} else if (SystemConfig.SCREEN_SIZE_1600) {
+			cp.setBounds(1370, 690, 160, 90);
+		} else {
+			cp.setBounds(1160, 570, 160, 90);
+		}
 
 		cp = new ClockPanel(IndexPageShell, SWT.NONE);
 		getDBBedPatienttoDisplay(); // *显示病床病人绑定
