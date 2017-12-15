@@ -47,7 +47,7 @@ public class CompositeUtil {
 			} else if (SystemConfig.SCREEN_SIZE_1600) {
 				mp[i].setBounds(x + 131 * i + 5, y, width, height);
 			} else {
-				mp[i].setBounds(x + 113 * i + 5, y, width, height);
+				mp[i].setBounds(x + 112 * i + 5, y, width, height);
 			}
 			// *1366*768
 		}

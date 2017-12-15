@@ -69,7 +69,7 @@ public class LoginSystemPage {
 		Label lblCount = new Label(LoginSystemShell, SWT.NONE);
 		lblCount.setBackground(SWTResourceManager.getColor(SWT.COLOR_TRANSPARENT));
 		lblCount.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.NORMAL));
-		lblCount.setBounds(34, 72, 48, 29);
+		lblCount.setBounds(32, 72, 48, 29);
 		lblCount.setText("账号：");
 
 		textCount = new Text(LoginSystemShell, SWT.BORDER);

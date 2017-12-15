@@ -28,13 +28,21 @@ public class BedPanel extends Composite {
 	@SuppressWarnings("unused")
 	private BedInfoPage bedInfo;
 	private static final int PANEL_FONT;
+	private static final int FONT_HIGHT;
+	private static final int PANELID;
 	static {
 		if (SystemConfig.SCREEN_SIZE_1920) {
 			PANEL_FONT = 11;
+			FONT_HIGHT = 20;
+			PANELID = 18;
 		} else if (SystemConfig.SCREEN_SIZE_1600) {
 			PANEL_FONT = 9;
+			FONT_HIGHT = 17;
+			PANELID = 16;
 		} else {
 			PANEL_FONT = 8;
+			FONT_HIGHT = 14;
+			PANELID = 14;
 		}
 	}
 
@@ -52,8 +60,8 @@ public class BedPanel extends Composite {
 		}
 
 		lblPanelID = new Label(this, SWT.NONE);
-		lblPanelID.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.NORMAL));
-		lblPanelID.setBounds(0, 34, 31, 27);
+		lblPanelID.setFont(SWTResourceManager.getFont("微软雅黑", PANELID, SWT.NORMAL));
+		lblPanelID.setBounds(0, 34, 31, 33);
 		lblPanelID.setText(i);
 		lblPanelID.addMouseListener(new MouseAdapter() {
 			@Override
@@ -64,7 +72,7 @@ public class BedPanel extends Composite {
 
 		lblPatientInfo = new Label(this, SWT.NONE);
 		lblPatientInfo.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.BOLD));
-		lblPatientInfo.setBounds(31, 4, 98, 19);
+		lblPatientInfo.setBounds(31, 4, 98, FONT_HIGHT);
 		lblPatientInfo.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -74,7 +82,7 @@ public class BedPanel extends Composite {
 
 		lblPatientID = new Label(this, SWT.NONE);
 		lblPatientID.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.NORMAL));
-		lblPatientID.setBounds(31, 19, 98, 16);
+		lblPatientID.setBounds(31, 19, 98, FONT_HIGHT);
 		lblPatientID.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -84,7 +92,7 @@ public class BedPanel extends Composite {
 
 		lblDisease = new Label(this, SWT.NONE);
 		lblDisease.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.NORMAL));
-		lblDisease.setBounds(31, 33, 98, 16);
+		lblDisease.setBounds(31, 33, 98, FONT_HIGHT);
 		lblDisease.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -94,7 +102,7 @@ public class BedPanel extends Composite {
 
 		lblCurrentSpd = new Label(this, SWT.NONE);
 		lblCurrentSpd.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.NORMAL));
-		lblCurrentSpd.setBounds(31, 49, 98, 16);
+		lblCurrentSpd.setBounds(31, 49, 98, FONT_HIGHT);
 		lblCurrentSpd.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -104,7 +112,7 @@ public class BedPanel extends Composite {
 
 		lblWorkStatus = new Label(this, SWT.NONE);
 		lblWorkStatus.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.NORMAL));
-		lblWorkStatus.setBounds(31, 63, 98, 16);
+		lblWorkStatus.setBounds(31, 63, 98, FONT_HIGHT);
 		lblWorkStatus.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {

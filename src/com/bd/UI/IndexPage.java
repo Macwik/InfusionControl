@@ -237,25 +237,25 @@ public class IndexPage {
 			mp6 = CompositeUtil.createLineComposite(IndexPageShell, 61, start, 567, width, height);
 			CompositeUtil.createDivideLine(IndexPageShell, 8, 674, 1566, 21, "护 士 报 警 终 端 列 表");
 		} else {
-			CompositeUtil.createDivideLine(IndexPageShell, 4, 5, 1352, 15, "床 位 列 表");
+			CompositeUtil.createDivideLine(IndexPageShell, 4, 5, 1341, 15, "床 位 列 表");
 			mp1 = CompositeUtil.createLineComposite(IndexPageShell, 1, start, 25, width, height);
 			mp2 = CompositeUtil.createLineComposite(IndexPageShell, 13, start, 115, width, height);
 			mp3 = CompositeUtil.createLineComposite(IndexPageShell, 25, start, 205, width, height);
 			mp4 = CompositeUtil.createLineComposite(IndexPageShell, 37, start, 295, width, height);
 			mp5 = CompositeUtil.createLineComposite(IndexPageShell, 49, start, 385, width, height);
 			mp6 = CompositeUtil.createLineComposite(IndexPageShell, 61, start, 475, width, height);
-			CompositeUtil.createDivideLine(IndexPageShell, 5, 565, 1352, 15, "护 士 报 警 终 端 列 表");
+			CompositeUtil.createDivideLine(IndexPageShell, 5, 565, 1341, 15, "护 士 报 警 终 端 列 表");
 		}
 		allPanel = getAllPanel(mp1, mp2, mp3, mp4, mp5, mp6);
 
 		imgPhone = new ImgPhonePanel[10];
 
 		if (SystemConfig.SCREEN_SIZE_1920) {
-			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 8, 852, 80, 133);
+			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 18, 865, 54, 97);
 		} else if (SystemConfig.SCREEN_SIZE_1600) {
 			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 35, 702, 52, 93);
 		} else {
-			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 35, 585, 54, 93);
+			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 35, 585, 50, 80);
 		}
 
 		cp = new ClockPanel(IndexPageShell, SWT.NONE);

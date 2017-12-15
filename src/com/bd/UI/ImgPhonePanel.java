@@ -8,6 +8,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import com.bd.Control.SystemConfig;
 import com.bd.SecondPage.BedSelectPage;
 
 public class ImgPhonePanel extends Composite {
@@ -20,7 +21,13 @@ public class ImgPhonePanel extends Composite {
 	public ImgPhonePanel(Composite parent, int start) {
 		super(parent, SWT.BORDER);
 
-		this.setBounds(37, 63, 76, 135);
+		if (SystemConfig.SCREEN_SIZE_1920) {
+			this.setBounds(37, 63, 70, 122);
+		} else if (SystemConfig.SCREEN_SIZE_1600) {
+			this.setBounds(37, 63, 76, 135);
+		} else {
+			this.setBounds(37, 63, 70, 100);
+		}
 		this.setBackgroundMode(SWT.INHERIT_DEFAULT);
 		phoneNum = new Label(this, SWT.NONE);
 		phoneNum.setFont(SWTResourceManager.getFont("微软雅黑", 15, SWT.NORMAL));
