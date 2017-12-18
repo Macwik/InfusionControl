@@ -144,7 +144,7 @@ public class BedInfoPage {
 		textSetBase.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.NORMAL));
 		textSetBase.setBounds(170, 134, 50, 23);
 		// TODO 演示 不可见
-		// textSetBase.setVisible(false);
+		textSetBase.setVisible(false);
 		textSetBase.addKeyListener(new KeyListener() {
 
 			@Override
@@ -207,7 +207,7 @@ public class BedInfoPage {
 		btnSetBaseSpeed.setBounds(355, 129, 153, 27);
 		btnSetBaseSpeed.setText("基准滴速设置");
 		// TODO 演示
-		// btnSetBaseSpeed.setVisible(false);
+		btnSetBaseSpeed.setVisible(false);
 
 		Label lblNewLabel_4 = new Label(BedInfoShell, SWT.NONE);
 		lblNewLabel_4.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.NORMAL));

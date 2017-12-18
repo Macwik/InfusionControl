@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.util.Collection;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -347,7 +348,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 	// 客户端发过来的所有信息都是在这里处理
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-
+		System.out.println("--------");
 		Date date = new Date();
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
 		DateFormat format2 = new SimpleDateFormat("HH:mm:ss");
@@ -356,7 +357,8 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 		String content = msg.toString();
 		StringBuilder sb = new StringBuilder();
 		StringBuilder tmp = new StringBuilder();
-		// System.out.println(rece_time + "[" + getIpPort(ctx) + "]" + msg);
+		// TODO
+		System.out.println(rece_time + "[" + getIpPort(ctx) + "]" + msg);
 		final String[] args = new String[9];
 		if (content.startsWith(head_dvic)) {// 判断字符串开头字符串是否是终端发来的报文
 			if (content.charAt(11) == ' ') {// 如果终端编号是空，则停止
@@ -382,6 +384,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 			sb.append(reply_dvic).append(',').append(args[2]).append(',');
 			SetDevice.registerDevice(args[2]);// 设置终端在线状态
 			PatientInfo patientInfo;
+			// System.out.println(args);
 			if (args[3].equals("ON")) {// 终端开机注册报文如果是ON
 				if (DeviceBound.containDevice(args[2])) {// 判断中控的面板上是否已经添加了这个终端ID
 					if (DeviceBedBound.notContainBD(args[2])) {// 判断这个终端是否有床位绑定
@@ -817,15 +820,15 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 					}
 					break;
 				// TODO 演示 增加一条滴速广播报文
-				// case "DRIP":
-				// if (args.length == 6) {
-				// Collection<ChannelHandlerContext> values = ctxs.values();
-				// content.replace("DVIC,SVER", "SVER,DVIC");
-				// values.forEach(x -> {
-				// write_word(x, content);
-				// });
-				// }
-				// break;
+				case "DRIP":
+					Collection<ChannelHandlerContext> values = ctxs.values();
+					String content_sent = content + "#";
+					content_sent.replace("DVIC,SVER", "SVER,DVIC");
+					values.forEach(x -> {
+						write_word(x, content_sent);
+					});
+					System.out.println("报文已经发送:" + content_sent);
+					break;
 				default:
 					break;
 				}
