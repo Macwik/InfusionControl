@@ -348,7 +348,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 	// 客户端发过来的所有信息都是在这里处理
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		System.out.println("--------");
+		// System.out.println("--------");
 		Date date = new Date();
 		DateFormat format1 = new SimpleDateFormat("yyyy-MM-dd");
 		DateFormat format2 = new SimpleDateFormat("HH:mm:ss");
@@ -358,7 +358,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 		StringBuilder sb = new StringBuilder();
 		StringBuilder tmp = new StringBuilder();
 		// TODO
-		System.out.println(rece_time + "[" + getIpPort(ctx) + "]" + msg);
+		// System.out.println(rece_time + "[" + getIpPort(ctx) + "]" + msg);
 		final String[] args = new String[9];
 		if (content.startsWith(head_dvic)) {// 判断字符串开头字符串是否是终端发来的报文
 			if (content.charAt(11) == ' ') {// 如果终端编号是空，则停止
