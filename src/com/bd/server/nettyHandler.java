@@ -53,11 +53,11 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 	private static final String _reply = "护士已响应";
 	private static final String _bang = "已绑定";
 	private static final String _alarm1 = "无液报警";
-	private static final String _alarm2 = "滴速异常";
-	private static final String _alarm3 = "无液滴速异常";
+	private static final String _alarm2 = "异常";
+	private static final String _alarm3 = "无液异常";// zhang
 	private static final String _alarm4 = "低电压报警";
 	private static final String _alarm5 = "无液低电压";
-	private static final String _alarm6 = "滴速异常低电压";
+	private static final String _alarm6 = "异常低电压";// zhang
 	private static final String _alarm7 = "无液异常低电压";
 	long current_pausetime = 0;// 记录当前开门时间
 	long base_pausetime = 0;// 记录当前基准时间
@@ -752,7 +752,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 
 							if (current_alarmtime - base_alarmtime > 20000) {
 								SystemConfig.infusionEventDao.addInfusionEvent(
-										new InfusionEvent(paientid_alarm, rece_date, rece_time, "滴速异常"));
+										new InfusionEvent(paientid_alarm, rece_date, rece_time, "异常"));// zhang
 							}
 
 							base_alarmtime = current_alarmtime;
@@ -761,7 +761,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 							current_alarmtime = System.currentTimeMillis();
 							if (current_alarmtime - base_alarmtime > 20000) {
 								SystemConfig.infusionEventDao.addInfusionEvent(
-										new InfusionEvent(paientid_alarm, rece_date, rece_time, "无液滴速异常"));
+										new InfusionEvent(paientid_alarm, rece_date, rece_time, "无液异常"));// zhang
 							}
 							base_alarmtime = current_alarmtime;
 							SetDevice.setDeviceStatus(args[2], _alarm3);
