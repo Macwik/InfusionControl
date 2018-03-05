@@ -182,8 +182,12 @@ public class BedPanel extends Composite {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				if (workStatus != null)
+				if (workStatus != null) {
 					lblWorkStatus.setText(workStatus);
+					if (workStatus.equals("护士已响应")){
+						//TODO 待完成修改图标
+					}
+				}
 			}
 		});
 

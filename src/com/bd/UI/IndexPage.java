@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 
+import com.bd.Control.InterfaceAndEnum.*;
+import com.bd.Manager.SetDevice;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.KeyEvent;
 import org.eclipse.swt.events.KeyListener;
@@ -18,10 +20,6 @@ import com.bd.Control.DeviceBedBound;
 import com.bd.Control.PhoneBedBound;
 import com.bd.Control.PhoneBound;
 import com.bd.Control.SystemConfig;
-import com.bd.Control.InterfaceAndEnum.IBedPatientBound;
-import com.bd.Control.InterfaceAndEnum.IDeviceBedBoundListener;
-import com.bd.Control.InterfaceAndEnum.IPhoneBedBoundListener;
-import com.bd.Control.InterfaceAndEnum.IPhoneBound;
 import com.bd.Control.Util.StringUtil;
 import com.bd.SecondPage.VerifyExitPage;
 import com.bd.UI.Util.CompositeUtil;
@@ -298,6 +296,8 @@ public class IndexPage {
 				VerifyExitPage ve = new VerifyExitPage(IndexPage.this, e);
 			}
 		});
+
+		SetDevice.setDeviceStatusColor("11", EDeviceStatusColorEnum.WARNING);
 	}
 
 	public void open() {
