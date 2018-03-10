@@ -4,6 +4,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.graphics.Color;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
@@ -30,19 +31,24 @@ public class BedPanel extends Composite {
 	private static final int PANEL_FONT;
 	private static final int FONT_HIGHT;
 	private static final int PANELID;
+	private static String BG_Blue;
+
 	static {
 		if (SystemConfig.SCREEN_SIZE_1920) {
 			PANEL_FONT = 11;
 			FONT_HIGHT = 20;
 			PANELID = 18;
+			BG_Blue = "/resource/warmingBlue.png";
 		} else if (SystemConfig.SCREEN_SIZE_1600) {
 			PANEL_FONT = 9;
 			FONT_HIGHT = 17;
 			PANELID = 16;
+			BG_Blue = "/resource/warmingBlue1600.png";
 		} else {
 			PANEL_FONT = 8;
 			FONT_HIGHT = 14;
 			PANELID = 14;
+			BG_Blue = "/resource/warmingBlue1366.png";
 		}
 	}
 
@@ -113,6 +119,10 @@ public class BedPanel extends Composite {
 		lblWorkStatus = new Label(this, SWT.NONE);
 		lblWorkStatus.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.NORMAL));
 		lblWorkStatus.setBounds(31, 63, 98, FONT_HIGHT);
+
+		// Composite composite = new WarmingLogo(this, SWT.NONE);
+		// composite.setBounds(338, 143, 84, 88);
+		// composite.setVisible(true);
 		lblWorkStatus.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseDown(MouseEvent e) {
@@ -126,6 +136,15 @@ public class BedPanel extends Composite {
 				bedInfo = new BedInfoPage(BedPanel.this);
 			}
 		});
+
+		// Image img = SWTResourceManager.getImage(ImgPhonePanel.class,
+		// BG_Blue);
+		// setBackgroundImage(img);
+
+		// InputStream inputStream = new
+		// FileInputStream("/resource/WarmRemove.png");
+		// Image image = new Image(Device.this, inputStream);
+		// this.setBackgroundImage(image);
 	}
 
 	// * 获取当前滴速
@@ -184,9 +203,6 @@ public class BedPanel extends Composite {
 			public void run() {
 				if (workStatus != null) {
 					lblWorkStatus.setText(workStatus);
-					if (workStatus.equals("护士已响应")){
-						//TODO 待完成修改图标
-					}
 				}
 			}
 		});
@@ -324,7 +340,10 @@ public class BedPanel extends Composite {
 					setMyPanelBgColortoYellow();
 					break;
 				case NOTWORK:
-					setMyPanelBgColortoBlue();
+					// TODO 修改护士以响应背景
+					Image img = SWTResourceManager.getImage(ImgPhonePanel.class, BG_Blue);
+					setBackgroundImage(img);
+					// setMyPanelBgColortoBlue();
 					break;
 				case WAIT:
 					setMyPanelBgColortoGray();

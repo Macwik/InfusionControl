@@ -36,7 +36,9 @@ public class CompositeUtil {
 			} else {
 				mp[i] = new BedPanel(shell, start + i + "");
 			}
+			// TODO
 			mp[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_GRAY));
+			// mp[i].setBackground(SWTResourceManager.getColor(SWT.COLOR_YELLOW));
 			// *1920*1080
 			// mp[i].setBounds(x + 159 * i + 6, y, width, height);
 			// *1920*1080
