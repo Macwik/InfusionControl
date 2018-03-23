@@ -226,9 +226,9 @@ public class BedPanel extends Composite {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				color = new Color(Display.getDefault(), 128, 255, 255);
+				// color = new Color(Display.getDefault(), 128, 255, 255);
 				// // TODO 演示版本 蓝色 变绿色
-				// color = new Color(Display.getDefault(), 128, 255, 128);
+				color = new Color(Display.getDefault(), 128, 255, 128);
 				BedPanel.this.setBackground(color);
 			}
 		});
@@ -240,9 +240,9 @@ public class BedPanel extends Composite {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				color = new Color(Display.getDefault(), 255, 0, 0);
+				// color = new Color(Display.getDefault(), 255, 0, 0);
 				// // TODO 演示版本 红色变黄色
-				// color = new Color(Display.getDefault(), 255, 255, 128);
+				color = new Color(Display.getDefault(), 255, 255, 128);
 				BedPanel.this.setBackground(color);
 			}
 		});
@@ -337,24 +337,34 @@ public class BedPanel extends Composite {
 				EDeviceStatusColorEnum color = device.getStatusColor();
 				switch (color) {
 				case EARLYWARNING:
+					setBackgroundImage(null);
 					setMyPanelBgColortoYellow();
 					break;
 				case NOTWORK:
+					setBackgroundImage(null);
 					// TODO 修改护士以响应背景
-					Image img = SWTResourceManager.getImage(ImgPhonePanel.class, BG_Blue);
-					setBackgroundImage(img);
-					// setMyPanelBgColortoBlue();
+					String status = device.getWorkStatus();
+					if (status.equals("护士已响应") || status.equals("门打开")) {
+						Image img = SWTResourceManager.getImage(BedPanel.class, BG_Blue);
+						setBackgroundImage(img);
+					} else {
+						setMyPanelBgColortoBlue();
+					}
 					break;
 				case WAIT:
+					setBackgroundImage(null);
 					setMyPanelBgColortoGray();
 					break;
 				case WARNING:
+					setBackgroundImage(null);
 					setMyPanelBgColortoRed();
 					break;
 				case WORK:
+					setBackgroundImage(null);
 					setMyPanelBgColortoGreen();
 					break;
 				default:
+					setBackgroundImage(null);
 					setMyPanelBgColortoGray();
 					break;
 				}

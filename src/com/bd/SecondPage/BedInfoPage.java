@@ -138,13 +138,14 @@ public class BedInfoPage {
 		Label lblNewLabel_2 = new Label(BedInfoShell, SWT.NONE);
 		lblNewLabel_2.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.NORMAL));
 		lblNewLabel_2.setBounds(57, 136, 112, 21);
-		lblNewLabel_2.setText("新设基准滴速：");
+		// TODO
+		// lblNewLabel_2.setText("新设基准滴速：");
 
 		textSetBase = new Text(BedInfoShell, SWT.BORDER);
 		textSetBase.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.NORMAL));
 		textSetBase.setBounds(170, 134, 50, 23);
 		// TODO 演示 不可见
-		// textSetBase.setVisible(false);
+		textSetBase.setVisible(false);
 		textSetBase.addKeyListener(new KeyListener() {
 
 			@Override
@@ -162,7 +163,8 @@ public class BedInfoPage {
 		Label lblNewLabel_3 = new Label(BedInfoShell, SWT.NONE);
 		lblNewLabel_3.setFont(SWTResourceManager.getFont("微软雅黑", 10, SWT.NORMAL));
 		lblNewLabel_3.setBounds(231, 136, 61, 21);
-		lblNewLabel_3.setText("滴/分钟");
+		// TODO
+		// lblNewLabel_3.setText("滴/分钟");
 
 		btnSetBaseSpeed = new Button(BedInfoShell, SWT.NONE);
 		btnSetBaseSpeed.addSelectionListener(new SelectionAdapter() {
@@ -207,7 +209,7 @@ public class BedInfoPage {
 		btnSetBaseSpeed.setBounds(355, 129, 153, 27);
 		btnSetBaseSpeed.setText("基准滴速设置");
 		// TODO 演示
-		// btnSetBaseSpeed.setVisible(false);
+		btnSetBaseSpeed.setVisible(false);
 
 		Label lblNewLabel_4 = new Label(BedInfoShell, SWT.NONE);
 		lblNewLabel_4.setFont(SWTResourceManager.getFont("微软雅黑", 12, SWT.NORMAL));

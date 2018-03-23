@@ -116,6 +116,12 @@ public class IndexPage {
 				if (bedNo != null && StringUtil.isBedID(bedNo)) {
 					int bn = StringUtil.getNum(bedNo);
 					allPanel[bn - 1].setBedPatientInfo(BedPatientBound.getPatientByBedNo(bedNo));
+					// TODO
+					// String BG_Blue = "/resource/warmingBlue.png";
+					// Image img =
+					// SWTResourceManager.getImage(ImgPhonePanel.class,
+					// BG_Blue);
+					// allPanel[bn - 1].setBackgroundImage(img);
 				}
 			}
 
@@ -124,6 +130,8 @@ public class IndexPage {
 				if (bedNo != null && StringUtil.isBedID(bedNo.trim())) {
 					int bn = StringUtil.getNum(bedNo);
 					allPanel[bn - 1].clearBedPatientInfo();
+					// TODO 312 新加 zhang
+					allPanel[bn - 1].setBackgroundImage(null);
 				}
 			}
 		});
