@@ -228,7 +228,7 @@ public class BedPanel extends Composite {
 			public void run() {
 				// color = new Color(Display.getDefault(), 128, 255, 255);
 				// // TODO 演示版本 蓝色 变绿色
-				color = new Color(Display.getDefault(), 128, 255, 128);
+				color = new Color(Display.getDefault(), 0, 255, 0);
 				BedPanel.this.setBackground(color);
 			}
 		});
@@ -253,7 +253,7 @@ public class BedPanel extends Composite {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
 			public void run() {
-				color = new Color(Display.getDefault(), 128, 255, 128);
+				color = new Color(Display.getDefault(), 0, 255, 0);
 				BedPanel.this.setBackground(color);
 			}
 		});
