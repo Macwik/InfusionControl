@@ -51,12 +51,15 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 	private static final String _work = "工作";
 	private static final String _reply = "护士已响应";
 	private static final String _bang = "已绑定";
+	/**
+	 * TIME：2018年4月8号 Author：zhangchao 滴速异常 改 异常 无液滴速异常 改 无液异常 滴速异常低电压 改 异常低电压
+	 */
 	private static final String _alarm1 = "无液报警";
-	private static final String _alarm2 = "滴速异常";
-	private static final String _alarm3 = "无液滴速异常";
+	private static final String _alarm2 = "异常";
+	private static final String _alarm3 = "无液异常";
 	private static final String _alarm4 = "低电压报警";
 	private static final String _alarm5 = "无液低电压";
-	private static final String _alarm6 = "滴速异常低电压";
+	private static final String _alarm6 = "异常低电压";
 	private static final String _alarm7 = "无液异常低电压";
 	long current_pausetime = 0;// 记录当前开门时间
 	long base_pausetime = 0;// 记录当前基准时间
@@ -739,7 +742,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 							current_alarmtime = System.currentTimeMillis();
 							if (current_alarmtime - base_alarmtime > 20000) {
 								SystemConfig.infusionEventDao.addInfusionEvent(
-										new InfusionEvent(paientid_alarm, rece_date, rece_time, "无液报警"));
+										new InfusionEvent(paientid_alarm, rece_date, rece_time, _alarm1));
 							}
 							base_alarmtime = current_alarmtime;
 							break;
@@ -747,9 +750,10 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 							SetDevice.setDeviceStatus(args[2], _alarm2);
 							current_alarmtime = System.currentTimeMillis();
 
+							// 滴速异常 改为 异常
 							if (current_alarmtime - base_alarmtime > 20000) {
 								SystemConfig.infusionEventDao.addInfusionEvent(
-										new InfusionEvent(paientid_alarm, rece_date, rece_time, "滴速异常"));
+										new InfusionEvent(paientid_alarm, rece_date, rece_time, _alarm2));
 							}
 
 							base_alarmtime = current_alarmtime;
