@@ -10,6 +10,7 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 
+import com.bd.Control.BedWarmingMp3Manager;
 import com.bd.Control.SystemConfig;
 import com.bd.Control.InterfaceAndEnum.EDeviceStatusColorEnum;
 import com.bd.Control.Util.StringUtil;
@@ -31,28 +32,39 @@ public class BedPanel extends Composite {
 	private static final int PANEL_FONT;
 	private static final int FONT_HIGHT;
 	private static final int PANELID;
-	private static String BG_Blue;
+	private static String BG_Warming;
+	private static String BG_Remove;
+	private static final int WARM_X;
+	private static final int WARM_Y;
 
 	static {
 		if (SystemConfig.SCREEN_SIZE_1920) {
 			PANEL_FONT = 11;
 			FONT_HIGHT = 20;
 			PANELID = 18;
-			BG_Blue = "/resource/warmingBlue.png";
+			BG_Warming = "/resource/warming.png";
+			BG_Remove = "/resource/warmingRemove.png";
+			WARM_X = 110;
+			WARM_Y = 80;
 		} else if (SystemConfig.SCREEN_SIZE_1600) {
 			PANEL_FONT = 9;
 			FONT_HIGHT = 17;
 			PANELID = 16;
-			BG_Blue = "/resource/warmingBlue1600.png";
+			BG_Warming = "/resource/warming1600.png";
+			BG_Remove = "/resource/warmingRemove1600.png";
+			WARM_X = 88;
+			WARM_Y = 65;
 		} else {
 			PANEL_FONT = 8;
 			FONT_HIGHT = 14;
 			PANELID = 14;
-			BG_Blue = "/resource/warmingBlue1366.png";
+			BG_Warming = "/resource/warming1366.png";
+			BG_Remove = "/resource/warmingRemove1366.png";
+			WARM_X = 80;
+			WARM_Y = 60;
 		}
 	}
 
-	// **创建面板
 	public BedPanel(Composite parent, String i) {
 		super(parent, SWT.BORDER);
 		this.setBackgroundMode(SWT.INHERIT_DEFAULT);
@@ -73,6 +85,34 @@ public class BedPanel extends Composite {
 			@Override
 			public void mouseDown(MouseEvent e) {
 				bedInfo = new BedInfoPage(BedPanel.this);
+			}
+		});
+
+		// 标记标签
+		/**
+		 * Author: zhangchao Date:2018年4月15日 TODO
+		 */
+		Label lblNewLabel = new Label(this, SWT.NONE);
+		lblNewLabel.setFont(SWTResourceManager.getFont("微软雅黑", PANELID, SWT.NORMAL));
+		lblNewLabel.setBounds(WARM_X, WARM_Y, 100, 80);
+		lblNewLabel.setText("");
+		lblNewLabel.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseDown(MouseEvent e) {
+				Image bg = getBackgroundImage();
+				Image img = SWTResourceManager.getImage(BedPanel.class, BG_Warming);
+				Image imgRemove = SWTResourceManager.getImage(BedPanel.class, BG_Remove);
+				if (bg != null) {
+					if (bg.equals(imgRemove)) {
+						setBackgroundImage(img);
+						BedWarmingMp3Manager.addWarming(lblPanelID.getText());
+					} else {
+						setBackgroundImage(imgRemove);
+						BedWarmingMp3Manager.removeWarming(lblPanelID.getText());
+					}
+				} else {
+					bedInfo = new BedInfoPage(BedPanel.this);
+				}
 			}
 		});
 
@@ -147,12 +187,10 @@ public class BedPanel extends Composite {
 		// this.setBackgroundImage(image);
 	}
 
-	// * 获取当前滴速
 	public String getCurrentSpd() {
 		return lblCurrentSpd.getText().trim();
 	}
 
-	// *获取病人用户信息
 	public String getPatientInfo() {
 		if (lblPatientInfo.getText().trim().equals(""))
 			return "";
@@ -166,19 +204,16 @@ public class BedPanel extends Composite {
 		lblPatientInfo.setText(patientName + " " + patientSex + " " + patientAge);
 	}
 
-	// * 设置病人住院号
 	private void setLblPatientID(String patientID) {
 		if (patientID != null)
 			lblPatientID.setText(patientID);
 	}
 
-	// * 设置病人疾病名称
 	private void setLblDisease(String disease) {
 		if (disease != null)
 			lblDisease.setText(disease);
 	}
 
-	// * 设置当前滴速
 	private void setLblCurrentSpd(String currentSpd) {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
@@ -196,7 +231,6 @@ public class BedPanel extends Composite {
 
 	}
 
-	// * 设置当前工作状态
 	private void setLblWorkStatus(String workStatus) {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
@@ -209,7 +243,6 @@ public class BedPanel extends Composite {
 
 	}
 
-	// * 设置背景色为灰色
 	private void setMyPanelBgColortoGray() {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
@@ -275,7 +308,6 @@ public class BedPanel extends Composite {
 		return lblPanelID.getText().trim();
 	}
 
-	// *设置床位显示病人信息
 	public void setBedPatientInfo(PatientInfo patientInfo) {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
@@ -289,7 +321,6 @@ public class BedPanel extends Composite {
 
 	}
 
-	// *清除病床上显示的病人信息
 	public void clearBedPatientInfo() {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
@@ -315,7 +346,6 @@ public class BedPanel extends Composite {
 		});
 	}
 
-	// *清除病床终端信息
 	public void clearBedDeviceInfo() {
 		this.getDisplay().asyncExec(new Runnable() {
 			@Override
@@ -326,7 +356,6 @@ public class BedPanel extends Composite {
 		});
 	}
 
-	// *改变病床颜色显示
 	public void setBgColor(DeviceInfo device) {
 		if (device == null) {
 			return;
@@ -345,7 +374,7 @@ public class BedPanel extends Composite {
 					// TODO 修改护士以响应背景
 					String status = device.getWorkStatus();
 					if (status.equals("护士已响应") || status.equals("门打开")) {
-						Image img = SWTResourceManager.getImage(BedPanel.class, BG_Blue);
+						Image img = SWTResourceManager.getImage(BedPanel.class, BG_Warming);
 						setBackgroundImage(img);
 					} else {
 						setMyPanelBgColortoBlue();
