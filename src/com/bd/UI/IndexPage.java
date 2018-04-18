@@ -276,10 +276,10 @@ public class IndexPage {
 
 		if (SystemConfig.SCREEN_SIZE_1920) {
 			cp.setBounds(1680, 864, 300, 130);
-			audioPanel.setBounds(1580, 864, 300, 130);
+			audioPanel.setBounds(1600, 864, 92, 100);
 		} else if (SystemConfig.SCREEN_SIZE_1600) {
 			cp.setBounds(1370, 690, 160, 90);
-			audioPanel.setBounds(1300, 690, 160, 90);
+			audioPanel.setBounds(1300, 700, 92, 96);
 		} else {
 			cp.setBounds(1160, 570, 160, 90);
 			audioPanel.setBounds(1095, 575, 86, 94);
