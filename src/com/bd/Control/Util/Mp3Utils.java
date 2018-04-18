@@ -28,6 +28,16 @@ public class Mp3Utils implements Runnable {
 	private static volatile AtomicInteger warningNum = new AtomicInteger(0);
 	private static Mp3Utils mp3Utils;
 	private static int timeInterval = 4;
+	// private static volatile AtomicInteger quitNum = new AtomicInteger(0);
+	private static volatile boolean systemVoice = true;
+
+	public static void setSystemVoiceOpen() {
+		Mp3Utils.systemVoice = true;
+	}
+
+	public static void setSystemVoiceClosed() {
+		Mp3Utils.systemVoice = false;
+	}
 
 	static {
 		music = new File(new File("").getAbsoluteFile(),
@@ -41,7 +51,7 @@ public class Mp3Utils implements Runnable {
 	@Override
 	public void run() {
 		try {
-			if (warningNum.get() > 0) {
+			if (warningNum.get() > 0 && systemVoice) {
 				play();
 			}
 		} catch (FileNotFoundException | JavaLayerException e) {
@@ -63,6 +73,14 @@ public class Mp3Utils implements Runnable {
 	public static void removePlayWarmMp3() {
 		warningNum.decrementAndGet();
 	}
+
+	// public static void addQuit() {
+	// quitNum.incrementAndGet();
+	// }
+	//
+	// public static void removeQuit() {
+	// quitNum.decrementAndGet();
+	// }
 
 	public static void main(String[] args) throws InterruptedException {
 		playWarmMp3();

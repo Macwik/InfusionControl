@@ -10,7 +10,6 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import com.bd.Control.BedWarmingMp3Manager;
 import com.bd.Control.SystemConfig;
 import com.bd.Control.InterfaceAndEnum.EDeviceStatusColorEnum;
 import com.bd.Control.Util.StringUtil;
@@ -92,29 +91,35 @@ public class BedPanel extends Composite {
 		/**
 		 * Author: zhangchao Date:2018年4月15日 TODO
 		 */
-		Label lblNewLabel = new Label(this, SWT.NONE);
-		lblNewLabel.setFont(SWTResourceManager.getFont("微软雅黑", PANELID, SWT.NORMAL));
-		lblNewLabel.setBounds(WARM_X, WARM_Y, 100, 80);
-		lblNewLabel.setText("");
-		lblNewLabel.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseDown(MouseEvent e) {
-				Image bg = getBackgroundImage();
-				Image img = SWTResourceManager.getImage(BedPanel.class, BG_Warming);
-				Image imgRemove = SWTResourceManager.getImage(BedPanel.class, BG_Remove);
-				if (bg != null) {
-					if (bg.equals(imgRemove)) {
-						setBackgroundImage(img);
-						BedWarmingMp3Manager.addWarming(lblPanelID.getText());
-					} else {
-						setBackgroundImage(imgRemove);
-						BedWarmingMp3Manager.removeWarming(lblPanelID.getText());
-					}
-				} else {
-					bedInfo = new BedInfoPage(BedPanel.this);
-				}
-			}
-		});
+		// Label lblNewLabel = new Label(this, SWT.NONE);
+		// lblNewLabel.setFont(SWTResourceManager.getFont("微软雅黑", PANELID,
+		// SWT.NORMAL));
+		// lblNewLabel.setBounds(WARM_X, WARM_Y, 100, 80);
+		// lblNewLabel.setText("");
+		/**
+		 * 2018.04.18 去除panel上报警图标
+		 */
+		// lblNewLabel.addMouseListener(new MouseAdapter() {
+		// @Override
+		// public void mouseDown(MouseEvent e) {
+		// Image bg = getBackgroundImage();
+		// Image img = SWTResourceManager.getImage(BedPanel.class, BG_Warming);
+		// Image imgRemove = SWTResourceManager.getImage(BedPanel.class,
+		// BG_Remove);
+		// if (bg != null) {
+		// if (bg.equals(imgRemove)) {
+		// setBackgroundImage(img);
+		// // BedWarmingMp3Manager.addWarming(lblPanelID.getText());
+		// // BedWarmingMp3Manager.removeQuit(lblPanelID.getText());
+		// } else {
+		// setBackgroundImage(imgRemove);
+		//
+		// }
+		// } else {
+		// bedInfo = new BedInfoPage(BedPanel.this);
+		// }
+		// }
+		// });
 
 		lblPatientInfo = new Label(this, SWT.NONE);
 		lblPatientInfo.setFont(SWTResourceManager.getFont("微软雅黑", PANEL_FONT, SWT.BOLD));

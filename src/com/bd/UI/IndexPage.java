@@ -57,6 +57,7 @@ public class IndexPage {
 	private BedPanel[] allPanel;
 	private ImgPhonePanel[] imgPhone;
 	private ClockPanel cp;
+	private AudioPanel audioPanel;
 	private nettyServer netty_Server;
 	private SystemMenu sm;
 
@@ -268,14 +269,20 @@ public class IndexPage {
 			imgPhone = CompositeUtil.createLineImgPhone(IndexPageShell, 35, 585, 50, 80);
 		}
 
+		// TODO 2018.04.18 添加全局声音开关
+		audioPanel = new AudioPanel(IndexPageShell);
+
 		cp = new ClockPanel(IndexPageShell, SWT.NONE);
 
 		if (SystemConfig.SCREEN_SIZE_1920) {
 			cp.setBounds(1680, 864, 300, 130);
+			audioPanel.setBounds(1580, 864, 300, 130);
 		} else if (SystemConfig.SCREEN_SIZE_1600) {
 			cp.setBounds(1370, 690, 160, 90);
+			audioPanel.setBounds(1300, 690, 160, 90);
 		} else {
 			cp.setBounds(1160, 570, 160, 90);
+			audioPanel.setBounds(1095, 575, 86, 94);
 		}
 
 		cp = new ClockPanel(IndexPageShell, SWT.NONE);

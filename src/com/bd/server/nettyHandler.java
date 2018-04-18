@@ -803,7 +803,7 @@ public class nettyHandler extends SimpleChannelHandlerAdapter {
 						Iterator<PhoneInfo> phone_iter = AboutPhone.getPhoneByBed(args[4]).iterator();// 取到床位号所对应的所有List
 						while (phone_iter.hasNext()) {// 判断List里面是否还有值
 							String phone_Id = phone_iter.next().getPhoneId();// 获得List中的手机编号
-							System.out.println("报警手机编号为:" + phone_Id);
+							// System.out.println("报警手机编号为:" + phone_Id);
 							if (phone_Id == null) {
 								return;
 							}
